@@ -22,3 +22,6 @@ service:
 # 👇 Required by serviceaccount.yaml template
 serviceAccount:
   create: true
+
+ingress:
+  enabled: false
