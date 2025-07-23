@@ -15,6 +15,10 @@ mysql:
   metrics:
     enabled: true
 
-# 👇 This is required for the test-connection template
+# 👇 Required by test-connection template
 service:
   port: 3306
+
+# 👇 Required by serviceaccount.yaml template
+serviceAccount:
+  create: true
