@@ -25,3 +25,8 @@ serviceAccount:
 
 ingress:
   enabled: false
+  annotations: {}
+  className: ""
+  tls: []
+  hosts: []
+
