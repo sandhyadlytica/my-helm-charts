@@ -14,3 +14,7 @@ mysql:
 
   metrics:
     enabled: true
+
+# 👇 This is required for the test-connection template
+service:
+  port: 3306
