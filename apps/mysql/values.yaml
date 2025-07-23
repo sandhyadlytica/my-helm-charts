@@ -1,0 +1,16 @@
+mysql:
+  auth:
+    rootPassword: rootpass123
+    username: demo
+    password: demopass123
+    database: demo_db
+
+  primary:
+    service:
+      type: ClusterIP
+    persistence:
+      enabled: true
+      size: 8Gi
+
+  metrics:
+    enabled: true
