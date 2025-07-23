@@ -8,8 +8,10 @@ metadata:
     "helm.sh/hook": test
 spec:
   containers:
-    - name: wget
+    - name: mysql-connection-test
       image: busybox
-      command: ['wget']
-      args: ['{{ include "mysql-wrapper.fullname" . }}:{{ .Values.service.port }}']
+      command: ['sh', '-c']
+      args:
+        - >
+          wget --spider {{ include "mysql-wrapper.fullname" . }}:{{ .Values.service.port | default 3306 }} || exit 1
   restartPolicy: Never
