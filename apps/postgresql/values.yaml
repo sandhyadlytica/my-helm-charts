@@ -39,6 +39,9 @@ image:
   pullPolicy: IfNotPresent
 
 env:
-  - name: POSTGRES_HOST_AUTH_METHOD
-    value: trust
-
+  - name: POSTGRES_USER
+    value: users
+  - name: POSTGRES_PASSWORD
+    value: passpass
+  - name: POSTGRES_DB
+    value: mydatabase
