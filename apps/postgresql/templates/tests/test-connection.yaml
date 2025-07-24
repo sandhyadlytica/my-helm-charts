@@ -6,10 +6,22 @@ metadata:
     {{- include "postgresql-wrapper.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": hook-succeeded
 spec:
   containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['{{ include "postgresql-wrapper.fullname" . }}:{{ .Values.service.port }}']
+    - name: psql-client
+      image: docker.io/bitnami/postgresql:16
+      env:
+        - name: PGPASSWORD
+          value: "{{ .Values.postgresql.auth.password }}"
+      command: ['psql']
+      args:
+        - "-h"
+        - "{{ include "postgresql-wrapper.fullname" . }}"
+        - "-U"
+        - "{{ .Values.postgresql.auth.username }}"
+        - "-d"
+        - "{{ .Values.postgresql.auth.database }}"
+        - "-c"
+        - "SELECT 1;"
   restartPolicy: Never

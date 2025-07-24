@@ -1,3 +1,17 @@
+serviceAccount:
+  create: true
+  name: ""
+
+service:
+  type: NodePort
+  port: 5432
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts: []
+  tls: []
 
 postgresql:
   auth:
@@ -10,5 +24,16 @@ postgresql:
       enabled: true
       size: 1Gi
     service:
-      type: NodePort  
-      port: 5432  
+      type: NodePort
+      port: 5432
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+
+image:
+  repository: postgres
+  tag: "16"
+  pullPolicy: IfNotPresent

@@ -15,8 +15,9 @@ mysql:
   metrics:
     enabled: true
 
-# 👇 Required by test-connection template
+# 👇 Required by service.yaml and other templates
 service:
+  type: ClusterIP     # Added this to fix nil pointer errors for .Values.service.type
   port: 3306
 
 # 👇 Required by serviceaccount.yaml template
@@ -30,3 +31,13 @@ ingress:
   tls: []
   hosts: []
 
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+
+image:
+  repository: mysql
+  tag: "8.0"
+  pullPolicy: IfNotPresent
