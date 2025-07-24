@@ -37,3 +37,8 @@ image:
   repository: postgres
   tag: "16"
   pullPolicy: IfNotPresent
+
+env:
+  - name: POSTGRES_HOST_AUTH_METHOD
+    value: trust
+
