@@ -15,8 +15,8 @@ ingress:
 
 postgresql:
   auth:
-    username: us
-    password: pass
+    username: users
+    password: passpass
     database: mydatabase
 
   primary:
