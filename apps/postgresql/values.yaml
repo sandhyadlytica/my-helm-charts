@@ -1,7 +1,7 @@
 postgresql:
   auth:
-    username: myuser
-    password: mypassword
+    username: user
+    password: password
     database: mydatabase
 
   primary:
