@@ -15,8 +15,8 @@ ingress:
 
 postgresql:
   auth:
-    username: user
-    password: pass
+    username: users
+    password: password
     database: mydatabase
 
   primary:
@@ -40,8 +40,8 @@ image:
 
 env:
   - name: POSTGRES_USER
-    value: user
+    value: users
   - name: POSTGRES_PASSWORD
-    value: pass
+    value: password
   - name: POSTGRES_DB
     value: mydatabase
