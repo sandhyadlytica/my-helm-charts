@@ -40,8 +40,8 @@ image:
 
 env:
   - name: POSTGRES_USER
-    value: users
+    value: user
   - name: POSTGRES_PASSWORD
-    value: passpass
+    value: pass
   - name: POSTGRES_DB
     value: mydatabase
