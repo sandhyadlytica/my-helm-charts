@@ -8,3 +8,6 @@ postgresql:
     persistence:
       enabled: true
       size: 1Gi
+    service:
+      type: NodePort  
+  
